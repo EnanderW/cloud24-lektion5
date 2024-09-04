@@ -48,6 +48,7 @@ public class MovieService {
         context.Movies.Add(movie);
         context.SaveChanges();
 
+        // Meddela andra microservices att vi har lagt in en ny film
         messageService.NotifyMovieCreation(new MovieDto(movie));
 
         return movie;

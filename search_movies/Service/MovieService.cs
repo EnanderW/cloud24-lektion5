@@ -15,6 +15,7 @@ public class MovieService {
         return result.ConvertAll(value => messageService.GetMovie(value.Id)).ToList();
     }
 
+    // Lägger in en "kopia" av en film i databasen (varje microservice har en egen databas)
     public void CreateMovie(MovieDto dto) {
         var movie = new SearchMovie {
             Id = dto.Id,

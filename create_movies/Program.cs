@@ -37,6 +37,7 @@ public class Program
             .AddEntityFrameworkStores<ApplicationContext>()
             .AddApiEndpoints();
 
+        // Registrera och starta igång "MessageService"
         builder.Services.AddHostedService<MessageService>();
         builder.Services.AddSingleton(x =>
             x.GetServices<IHostedService>().OfType<MessageService>().First()
